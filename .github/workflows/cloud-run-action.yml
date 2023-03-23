@@ -34,7 +34,7 @@ jobs:
 
       - name: Push
         run: |
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/helloworld:latest
+          sudo -u $USER docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/helloworld:latest
 
       - name: Deploy
         run: |
