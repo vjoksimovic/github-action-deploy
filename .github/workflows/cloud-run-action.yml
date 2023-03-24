@@ -33,12 +33,8 @@ jobs:
           docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/helloworld:latest .
 
       - name: Push
-        uses: RafikFarhad/push-to-gcr-github-action@v5-beta
-        with:
-            registry: gcr.io
-            project_id: gd-gcp-hm-fm-sandbox
-            image_name: new-nginx
-            dockerfile: ./Dockerfile
+        run: |
+          sudo -u $USER docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/helloworld:latest
 
       - name: Deploy
         run: |
